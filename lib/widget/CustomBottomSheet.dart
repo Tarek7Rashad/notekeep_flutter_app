@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notekeep_flutter_app/widget/CustomAddButton.dart';
 import 'package:notekeep_flutter_app/widget/CustomTextFormField.dart';
 
 class CustomBottomSheet extends StatelessWidget {
@@ -11,23 +12,26 @@ class CustomBottomSheet extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 10),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 30,
+          Spacer(
+            flex: 1,
           ),
           CustomTextFormField(
             hint: "Note Title",
             label: "Note Title",
           ),
-          SizedBox(
-            height: 30,
+          Spacer(
+            flex: 1,
           ),
           CustomTextFormField(
-            contentPadding: EdgeInsets.all(30),
+            maxLines: 5,
             hint: "Note",
             label: "Note",
           ),
+          Spacer(
+            flex: 5,
+          ),
+          CustomAddButton(text: "Add"),
         ],
       ),
     );

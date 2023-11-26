@@ -6,17 +6,19 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.hint,
     required this.label,
-    this.contentPadding,
+     this.maxLines = 1,
   });
   final String hint;
   final String label;
-  final EdgeInsetsGeometry? contentPadding;
+  final int maxLines;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines,
+      cursorColor: kMattWhiteColor,
       style: const TextStyle(color: Colors.white, fontSize: 22),
       decoration: InputDecoration(
-          contentPadding: contentPadding,
+          
           hintText: hint,
           hintStyle:
               TextStyle(color: kMattWhiteColor.withOpacity(.5), fontSize: 22),
