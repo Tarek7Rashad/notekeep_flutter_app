@@ -6,11 +6,21 @@ class NoteKeepHomeScreen extends StatelessWidget {
   static String id = 'NoteKeepHomeScreen';
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
-        body: NotesBodyWidget(),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.transparent,
+          shape: const CircleBorder(
+              side: BorderSide(
+                  width: 5, color: Color.fromARGB(255, 149, 3, 246))),
+          onPressed: () {},
+          child: const Icon(
+            Icons.add,
+            size: 30,
+          ),
+        ),
+        body: const NotesBodyWidget(),
       ),
     );
   }
 }
-

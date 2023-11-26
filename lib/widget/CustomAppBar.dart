@@ -16,7 +16,10 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Text(
             'Notes',
-            style: TextStyle(fontSize: 30, color: kMattWhiteColor),
+            style: TextStyle(
+                fontSize: 30,
+                color: kMoreDarkPurpleColor,
+                fontWeight: FontWeight.bold),
           ),
           CustomSearchIcon()
         ],
@@ -24,4 +27,3 @@ class CustomAppBar extends StatelessWidget {
     );
   }
 }
-
