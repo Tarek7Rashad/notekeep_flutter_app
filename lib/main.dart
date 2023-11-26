@@ -13,6 +13,9 @@ class NoteKeepApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: NoteKeepHomeScreen.id,
+      routes: {
+        NoteKeepHomeScreen.id: (context) => const NoteKeepHomeScreen(),
+      },
       theme: ThemeData(brightness: Brightness.dark),
     );
   }
