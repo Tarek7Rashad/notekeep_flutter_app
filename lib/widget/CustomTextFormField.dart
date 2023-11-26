@@ -6,7 +6,7 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.hint,
     required this.label,
-     this.maxLines = 1,
+    this.maxLines = 1,
   });
   final String hint;
   final String label;
@@ -18,7 +18,6 @@ class CustomTextFormField extends StatelessWidget {
       cursorColor: kMattWhiteColor,
       style: const TextStyle(color: Colors.white, fontSize: 22),
       decoration: InputDecoration(
-          
           hintText: hint,
           hintStyle:
               TextStyle(color: kMattWhiteColor.withOpacity(.5), fontSize: 22),

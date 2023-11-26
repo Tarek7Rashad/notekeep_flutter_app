@@ -14,7 +14,7 @@ class CustomAddButton extends StatelessWidget {
     return Container(
       width: double.maxFinite,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         color: const Color(0xffdfe3ee),
       ),
       child: MaterialButton(

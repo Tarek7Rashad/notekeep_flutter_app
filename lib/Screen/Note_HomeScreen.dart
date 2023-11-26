@@ -13,8 +13,7 @@ class NoteKeepHomeScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.transparent,
           shape: const CircleBorder(
-              side: BorderSide(
-                  width: 5, color: Color.fromARGB(255, 149, 3, 246))),
+              side: BorderSide(width: 5, color: kMattWhiteColor)),
           onPressed: () {
             showModalBottomSheet(
               backgroundColor: kDarkPurpleColor.withOpacity(0.95),
@@ -32,6 +31,7 @@ class NoteKeepHomeScreen extends StatelessWidget {
           child: const Icon(
             Icons.add,
             size: 30,
+            color: kMattWhiteColor,
           ),
         ),
         body: const NotesBodyWidget(),

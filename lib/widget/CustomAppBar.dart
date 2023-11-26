@@ -5,23 +5,28 @@ import 'package:notekeep_flutter_app/widget/CustomSearchIcon.dart';
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
+    required this.title,
+    required this.icon,
   });
-
+  final String title;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 20),
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Notes',
-            style: TextStyle(
+            title,
+            style: const TextStyle(
                 fontSize: 30,
-                color: kMoreDarkPurpleColor,
+                color: kMattWhiteColor,
                 fontWeight: FontWeight.bold),
           ),
-          CustomSearchIcon()
+          CustomSearchIcon(
+            icon: icon,
+          )
         ],
       ),
     );

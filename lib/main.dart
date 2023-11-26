@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notekeep_flutter_app/Screen/Note_EditingScreen.dart';
 import 'package:notekeep_flutter_app/Screen/Note_HomeScreen.dart';
 
 void main() {
@@ -15,9 +16,10 @@ class NoteKeepApp extends StatelessWidget {
       initialRoute: NoteKeepHomeScreen.id,
       routes: {
         NoteKeepHomeScreen.id: (context) => const NoteKeepHomeScreen(),
+        NoteEditing.id: (context) => const NoteEditing(),
       },
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         fontFamily: "Lato",
       ),
     );
