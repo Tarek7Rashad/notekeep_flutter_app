@@ -16,7 +16,10 @@ class NoteKeepApp extends StatelessWidget {
       routes: {
         NoteKeepHomeScreen.id: (context) => const NoteKeepHomeScreen(),
       },
-      theme: ThemeData(brightness: Brightness.dark),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: "Lato",
+      ),
     );
   }
 }
