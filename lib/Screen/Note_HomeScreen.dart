@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notekeep_flutter_app/shared/components/constant.dart';
+import 'package:notekeep_flutter_app/widget/CustomBottomSheet.dart';
 import 'package:notekeep_flutter_app/widget/NotesBody.dart';
 
 class NoteKeepHomeScreen extends StatelessWidget {
@@ -13,7 +15,20 @@ class NoteKeepHomeScreen extends StatelessWidget {
           shape: const CircleBorder(
               side: BorderSide(
                   width: 5, color: Color.fromARGB(255, 149, 3, 246))),
-          onPressed: () {},
+          onPressed: () {
+            showModalBottomSheet(
+              backgroundColor: kDarkPurpleColor.withOpacity(0.95),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(24),
+                topRight: Radius.circular(24),
+              )),
+              context: context,
+              builder: (context) {
+                return const CustomBottomSheet();
+              },
+            );
+          },
           child: const Icon(
             Icons.add,
             size: 30,
