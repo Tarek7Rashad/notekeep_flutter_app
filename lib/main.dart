@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:notekeep_flutter_app/Screen/Note_EditingScreen.dart';
 import 'package:notekeep_flutter_app/Screen/Note_HomeScreen.dart';
+import 'package:notekeep_flutter_app/shared/components/constant.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kNoteBox);
   runApp(const NoteKeepApp());
 }
 
