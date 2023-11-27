@@ -7,13 +7,22 @@ class CustomTextFormField extends StatelessWidget {
     required this.hint,
     required this.label,
     this.maxLines = 1,
+    this.onSaved,
   });
   final String hint;
   final String label;
   final int maxLines;
+  final Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: onSaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return "Field Is Empty";
+        }
+        return null;
+      },
       maxLines: maxLines,
       cursorColor: kMattWhiteColor,
       style: const TextStyle(color: Colors.white, fontSize: 22),
@@ -25,6 +34,9 @@ class CustomTextFormField extends StatelessWidget {
           labelStyle:
               TextStyle(color: kMattWhiteColor.withOpacity(.9), fontSize: 22),
           enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(width: .4, color: kMattWhiteColor)),
+          border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(width: .4, color: kMattWhiteColor)),
           focusedBorder: OutlineInputBorder(

@@ -24,8 +24,8 @@ class NoteItemWidget extends StatelessWidget {
                 color: Colors.deepPurple,
               )
             ],
-            border: Border.all(width: 1, color: kMattWhiteColor),
-            color: kDarkPurpleColor,
+            border: Border.all(width: .3, color: kMattWhiteColor),
+            color: kBlackColor,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Padding(
