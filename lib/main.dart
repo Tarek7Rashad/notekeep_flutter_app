@@ -4,6 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notekeep_flutter_app/Screen/BlocObserver.dart';
 import 'package:notekeep_flutter_app/Screen/Note_EditingScreen.dart';
 import 'package:notekeep_flutter_app/Screen/Note_HomeScreen.dart';
+import 'package:notekeep_flutter_app/cubits/Notes/notes_cubit.dart';
 import 'package:notekeep_flutter_app/model/Note_Model.dart';
 import 'package:notekeep_flutter_app/shared/components/constant.dart';
 
@@ -21,16 +22,19 @@ class NoteKeepApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: NoteKeepHomeScreen.id,
-      routes: {
-        NoteKeepHomeScreen.id: (context) => const NoteKeepHomeScreen(),
-        NoteEditing.id: (context) => const NoteEditing(),
-      },
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        fontFamily: "Lato",
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: NoteKeepHomeScreen.id,
+        routes: {
+          NoteKeepHomeScreen.id: (context) => const NoteKeepHomeScreen(),
+          NoteEditing.id: (context) => const NoteEditing(),
+        },
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: "Lato",
+        ),
       ),
     );
   }

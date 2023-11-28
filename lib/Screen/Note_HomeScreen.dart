@@ -11,36 +11,33 @@ class NoteKeepHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocProvider(
-        create: (context) => NotesCubit(),
-        child: Scaffold(
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.transparent,
-            shape: const CircleBorder(
-                side: BorderSide(width: 5, color: kMattWhiteColor)),
-            onPressed: () {
-              showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: kDarkPurpleColor.withOpacity(0.95),
-                shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(24),
-                  topRight: Radius.circular(24),
-                )),
-                context: context,
-                builder: (context) {
-                  return const CustomBottomSheet();
-                },
-              );
-            },
-            child: const Icon(
-              Icons.add,
-              size: 30,
-              color: kMattWhiteColor,
-            ),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.transparent,
+          shape: const CircleBorder(
+              side: BorderSide(width: 1, color: kMattWhiteColor)),
+          onPressed: () {
+            showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: kDarkPurpleColor.withOpacity(0.95),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(24),
+                topRight: Radius.circular(24),
+              )),
+              context: context,
+              builder: (context) {
+                return const CustomBottomSheet();
+              },
+            );
+          },
+          child: const Icon(
+            Icons.add,
+            size: 30,
+            color: kMattWhiteColor,
           ),
-          body: const NotesBodyWidget(),
         ),
+        body: const NotesBodyWidget(),
       ),
     );
   }
