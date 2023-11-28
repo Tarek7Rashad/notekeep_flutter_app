@@ -28,13 +28,13 @@ class NoteItemWidget extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: const [
               BoxShadow(
-                blurRadius: 10,
+                blurRadius: 7,
                 blurStyle: BlurStyle.outer,
-                color: Colors.deepPurple,
+                color: kGreenColor,
               )
             ],
             border: Border.all(width: .3, color: kMattWhiteColor),
-            color: kBlackColor,
+            color: kBlueGreyColor.withOpacity(0.3),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Padding(
