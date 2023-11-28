@@ -6,9 +6,11 @@ class CustomAddButton extends StatelessWidget {
     super.key,
     required this.text,
     this.onPressed,
+    this.loading = false,
   });
   final VoidCallback? onPressed;
   final String text;
+  final bool loading;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,13 +21,21 @@ class CustomAddButton extends StatelessWidget {
       ),
       child: MaterialButton(
         onPressed: onPressed,
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 22,
-            color: kDarkPurpleColor,
-          ),
-        ),
+        child: loading
+            ? const SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(
+                  color: kDarkPurpleColor,
+                ),
+              )
+            : Text(
+                text,
+                style: const TextStyle(
+                  fontSize: 22,
+                  color: kDarkPurpleColor,
+                ),
+              ),
       ),
     );
   }

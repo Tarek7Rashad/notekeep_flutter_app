@@ -50,22 +50,25 @@ class _fieldsOfAddNewNoteState extends State<FieldsOfAddNewNote> {
             label: "Note",
           ),
           const SizedBox(
-            height: 50,
+            height: 40,
           ),
-          CustomAddButton(
-            text: "Add",
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                var noteModel = NoteModel(
-                    title: title!, subTitle: subTitle!, date: DateTime.now());
-                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
-            },
-          ),
+          BlocBuilder<AddNoteCubit, AddNoteState>(builder: (context, state) {
+            return CustomAddButton(
+              loading: state is AddNoteLoading ? true : false,
+              text: "Add",
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                  var noteModel = NoteModel(
+                      title: title!, subTitle: subTitle!, date: DateTime.now());
+                  BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+            );
+          }),
           const SizedBox(
             height: 10,
           ),
