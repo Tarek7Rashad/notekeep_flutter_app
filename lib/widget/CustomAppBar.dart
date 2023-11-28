@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:notekeep_flutter_app/shared/components/constant.dart';
-import 'package:notekeep_flutter_app/widget/CustomSearchIcon.dart';
+import 'package:notekeep_flutter_app/widget/CustomIcon.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.title,
     required this.icon,
+    this.onPressed,
   });
   final String title;
   final IconData icon;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,7 +26,8 @@ class CustomAppBar extends StatelessWidget {
                 color: kMattWhiteColor,
                 fontWeight: FontWeight.bold),
           ),
-          CustomSearchIcon(
+          CustomIcon(
+            onPressed: onPressed,
             icon: icon,
           )
         ],

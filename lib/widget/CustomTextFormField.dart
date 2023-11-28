@@ -8,15 +8,21 @@ class CustomTextFormField extends StatelessWidget {
     required this.label,
     this.maxLines = 1,
     this.onSaved,
+    this.onChanged,  this.controller,
   });
   final String hint;
   final String label;
   final int maxLines;
+  final Function(String)? onChanged;
   final Function(String?)? onSaved;
+  final TextEditingController? controller;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       onSaved: onSaved,
+      onChanged: onChanged,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return "Field Is Empty";

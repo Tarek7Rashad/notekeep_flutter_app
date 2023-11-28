@@ -23,7 +23,7 @@ class CustomNotesListView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               itemCount: notesModel.length,
               itemBuilder: (context, index) {
-                return NoteItemWidget(noteModel: notesModel[index]);
+                return NoteItemWidget(noteModell: notesModel[index]);
               },
             ),
           ),

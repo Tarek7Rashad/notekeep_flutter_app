@@ -9,16 +9,20 @@ import 'package:notekeep_flutter_app/shared/components/constant.dart';
 class NoteItemWidget extends StatelessWidget {
   const NoteItemWidget({
     super.key,
-    required this.noteModel,
+    required this.noteModell,
   });
-  final NoteModel noteModel;
+  final NoteModel noteModell;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).pushNamed(NoteEditing.id);
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => NoteEditing(
+              noteModel: noteModell,
+            ),
+          ));
         },
         child: Container(
           decoration: BoxDecoration(
@@ -41,9 +45,9 @@ class NoteItemWidget extends StatelessWidget {
               children: [
                 ListTile(
                   title: Padding(
-                    padding: EdgeInsets.only(bottom: 30),
+                    padding: const EdgeInsets.only(bottom: 30),
                     child: Text(
-                      noteModel.title,
+                      noteModell.title,
                       style: const TextStyle(
                           color: kMattWhiteColor,
                           fontSize: 32,
@@ -52,7 +56,7 @@ class NoteItemWidget extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    noteModel.subTitle,
+                    noteModell.subTitle,
                     style: const TextStyle(
                         color: kMattWhiteColor,
                         fontSize: 24,
@@ -62,7 +66,7 @@ class NoteItemWidget extends StatelessWidget {
                       iconSize: 40,
                       color: kMattWhiteColor,
                       onPressed: () {
-                        noteModel.delete();
+                        noteModell.delete();
                         BlocProvider.of<NotesCubit>(context).getAllNotes();
                       },
                       icon: const Icon(Icons.delete)),
@@ -70,7 +74,7 @@ class NoteItemWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 26),
                   child: Text(
-                    '${DateFormat.yMEd().format(noteModel.date)}  ${DateFormat.jm().format(noteModel.date)}',
+                    '${DateFormat.yMEd().format(noteModell.date)}  ${DateFormat.jm().format(noteModell.date)}',
                     style:
                         const TextStyle(color: kMattWhiteColor, fontSize: 18),
                   ),

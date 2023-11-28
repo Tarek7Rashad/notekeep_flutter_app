@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notekeep_flutter_app/cubits/Notes/notes_cubit.dart';
 import 'package:notekeep_flutter_app/shared/components/constant.dart';
 import 'package:notekeep_flutter_app/widget/CustomBottomSheet.dart';
 import 'package:notekeep_flutter_app/widget/NotesBody.dart';
