@@ -16,6 +16,7 @@ class NoteKeepHomeScreen extends StatelessWidget {
               side: BorderSide(width: 5, color: kMattWhiteColor)),
           onPressed: () {
             showModalBottomSheet(
+              isScrollControlled: true,
               backgroundColor: kDarkPurpleColor.withOpacity(0.95),
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(

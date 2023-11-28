@@ -29,10 +29,13 @@ class CustomBottomSheet extends StatelessWidget {
         builder: (context, state) {
           return AbsorbPointer(
             absorbing: state is AddNoteLoading ? true : false,
-            child: const Padding(
-              padding:
-                  EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 10),
-              child: SingleChildScrollView(child: FieldsOfAddNewNote()),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: 30,
+                  right: 20,
+                  left: 20,
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: const SingleChildScrollView(child: FieldsOfAddNewNote()),
             ),
           );
         },
