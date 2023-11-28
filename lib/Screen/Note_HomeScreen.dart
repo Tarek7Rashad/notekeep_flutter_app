@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notekeep_flutter_app/cubits/Notes/notes_cubit.dart';
 import 'package:notekeep_flutter_app/shared/components/constant.dart';
 import 'package:notekeep_flutter_app/widget/CustomBottomSheet.dart';
 import 'package:notekeep_flutter_app/widget/NotesBody.dart';
@@ -9,33 +11,36 @@ class NoteKeepHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.transparent,
-          shape: const CircleBorder(
-              side: BorderSide(width: 5, color: kMattWhiteColor)),
-          onPressed: () {
-            showModalBottomSheet(
-              isScrollControlled: true,
-              backgroundColor: kDarkPurpleColor.withOpacity(0.95),
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(24),
-                topRight: Radius.circular(24),
-              )),
-              context: context,
-              builder: (context) {
-                return const CustomBottomSheet();
-              },
-            );
-          },
-          child: const Icon(
-            Icons.add,
-            size: 30,
-            color: kMattWhiteColor,
+      child: BlocProvider(
+        create: (context) => NotesCubit(),
+        child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.transparent,
+            shape: const CircleBorder(
+                side: BorderSide(width: 5, color: kMattWhiteColor)),
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                backgroundColor: kDarkPurpleColor.withOpacity(0.95),
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                )),
+                context: context,
+                builder: (context) {
+                  return const CustomBottomSheet();
+                },
+              );
+            },
+            child: const Icon(
+              Icons.add,
+              size: 30,
+              color: kMattWhiteColor,
+            ),
           ),
+          body: const NotesBodyWidget(),
         ),
-        body: const NotesBodyWidget(),
       ),
     );
   }
