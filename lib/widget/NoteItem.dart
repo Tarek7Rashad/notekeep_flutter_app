@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:notekeep_flutter_app/Screen/Note_EditingScreen.dart';
 import 'package:notekeep_flutter_app/model/Note_Model.dart';
 import 'package:notekeep_flutter_app/shared/components/constant.dart';
@@ -64,7 +65,7 @@ class NoteItemWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 26),
                   child: Text(
-                    '${noteModel.date.hour % 12}:${noteModel.date.minute}  ${noteModel.date.day}/${noteModel.date.month}',
+                    '${DateFormat.yMEd().format(noteModel.date)}  ${DateFormat.jm().format(noteModel.date)}',
                     style:
                         const TextStyle(color: kMattWhiteColor, fontSize: 18),
                   ),
