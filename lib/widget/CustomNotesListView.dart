@@ -15,11 +15,12 @@ class CustomNotesListView extends StatelessWidget {
       builder: (context, state) {
         List<NoteModel> notesModel =
             BlocProvider.of<NotesCubit>(context).notes ?? [];
+        notesModel = notesModel.reversed.toList();
         return Expanded(
           child: Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: ListView.builder(
-              reverse: true,
+              shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
               itemCount: notesModel.length,
               itemBuilder: (context, index) {
