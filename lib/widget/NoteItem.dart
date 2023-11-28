@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:notekeep_flutter_app/Screen/Note_EditingScreen.dart';
+import 'package:notekeep_flutter_app/model/Note_Model.dart';
 import 'package:notekeep_flutter_app/shared/components/constant.dart';
 
 class NoteItemWidget extends StatelessWidget {
   const NoteItemWidget({
     super.key,
+    required this.noteModel,
   });
-
+  final NoteModel noteModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,20 +37,20 @@ class NoteItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 ListTile(
-                  title: const Padding(
+                  title: Padding(
                     padding: EdgeInsets.only(bottom: 30),
                     child: Text(
-                      'Note',
-                      style: TextStyle(
+                      noteModel.title,
+                      style: const TextStyle(
                           color: kMattWhiteColor,
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic),
                     ),
                   ),
-                  subtitle: const Text(
-                    'this is first note ! this is first note !this is first note !this is first note !this is first note !this is first note !this is first note !',
-                    style: TextStyle(
+                  subtitle: Text(
+                    noteModel.subTitle,
+                    style: const TextStyle(
                         color: kMattWhiteColor,
                         fontSize: 24,
                         fontStyle: FontStyle.italic),
@@ -59,11 +61,12 @@ class NoteItemWidget extends StatelessWidget {
                       onPressed: () {},
                       icon: const Icon(Icons.delete)),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 26),
+                Padding(
+                  padding: const EdgeInsets.only(right: 26),
                   child: Text(
-                    '26/11/2023',
-                    style: TextStyle(color: kMattWhiteColor, fontSize: 18),
+                    '${noteModel.date.hour % 12}:${noteModel.date.minute}  ${noteModel.date.day}/${noteModel.date.month}',
+                    style:
+                        const TextStyle(color: kMattWhiteColor, fontSize: 18),
                   ),
                 )
               ],
