@@ -11,8 +11,9 @@ import 'package:notekeep_flutter_app/shared/components/constant.dart';
 void main() async {
   Bloc.observer = MyBlocObserver();
   await Hive.initFlutter();
-  await Hive.openBox(kNoteBox);
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>(kNoteBox);
+
   runApp(const NoteKeepApp());
 }
 
@@ -21,21 +22,16 @@ class NoteKeepApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AddNoteCubit()),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: NoteKeepHomeScreen.id,
-        routes: {
-          NoteKeepHomeScreen.id: (context) => const NoteKeepHomeScreen(),
-          NoteEditing.id: (context) => const NoteEditing(),
-        },
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          fontFamily: "Lato",
-        ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: NoteKeepHomeScreen.id,
+      routes: {
+        NoteKeepHomeScreen.id: (context) => const NoteKeepHomeScreen(),
+        NoteEditing.id: (context) => const NoteEditing(),
+      },
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: "Lato",
       ),
     );
   }
